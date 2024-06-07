@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #41a0b6, #feb47b);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        .container {
+            background: rgba(43, 41, 41, 0.7);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(62, 61, 61, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .card-header {
+            border-radius: 15px 15px 0 0;
+            background-color: #333;
+            color: rgb(194, 183, 183);
+            text-align: center;
+            font-size: 2rem;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(58, 57, 57, 0.1);
+        }
+
+        .btn-generate {
+            width: 100%;
+            background: linear-gradient(45deg, #007bff, #00d4ff);
+            border: none;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-generate:hover {
+            background: linear-gradient(45deg, #0056b3, #00bfff);
+        }
+
+        .btn-download {
+            background: linear-gradient(45deg, #28a745, #a7e441);
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            font-size: 1.2rem;
+            transition: background 0.3s, transform 0.3s;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(45deg, #218838, #91d11f);
+            transform: scale(1.1);
+        }
+
+        .btn:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .generated-image {
+            position: relative;
+            display: inline-block;
+        }
+
+        .generated-image img {
+            width: 700px;
+            height: 500px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .generated-image img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Image Generation Wizard
+            </div>
+            <div class="card-body">
+                <form method="post" id="promptForm">
+                    <div class="form-group">
+                        <input type="text" id="prompt" name="prompt" class="form-control" placeholder="Describe your vision..." required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-generate">Create Masterpiece</button>
+                </form>
+
+                <div id="generatedImage" class="generated-image">
+                    {% if img_data %}
+                        <img src="data:image/png;base64,{{ img_data }}" alt="Generated Image" class="img-fluid">
+                        <a href="/download/{{ img_id }}" class="btn btn-success btn-download"><i class="fas fa-download"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#promptForm').on('submit', function () {
+                $('.btn-generate').prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Crafting...');
+            });
+        });
+    </script>
+</body>
+
+</html>

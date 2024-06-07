@@ -28,7 +28,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1. **Clone the repository**:
     ```bash
-    git clone [https://github.com/yourusername/Image-Generation-Wizard.git](https://github.com/kashish1344/Image-Generation-Wizard.git)
+    git clone https://github.com/yourusername/Image-Generation-Wizard.git
     cd image-generation-wizard
     ```
 

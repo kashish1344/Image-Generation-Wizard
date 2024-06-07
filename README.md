@@ -10,7 +10,8 @@ Welcome to **Image Generation Wizard**! This innovative web application allows y
 
 ## Demo
 
-![Demo Image](static/demo.png)
+
+https://github.com/kashish1344/Image-Generation-Wizard/assets/83247791/8de2d693-ed2d-4536-a456-2ee2bea71498
 
 ## Getting Started
 

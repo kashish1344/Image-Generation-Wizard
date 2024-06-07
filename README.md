@@ -83,26 +83,10 @@ Follow these instructions to get a copy of the project up and running on your lo
 - **CSS**: Includes custom styles to enhance the visual appeal of the application.
 - **JavaScript**: Adds interactivity and animations to the UI elements.
 
-## Screenshots
-
-![Home Page](static/screenshot1.png)
-![Generated Image](static/screenshot2.png)
-
 ## Future Enhancements
 
 - **Multiple Image Generation**: Allow users to generate multiple images from a single prompt.
 - **Customization Options**: Provide options to customize the generated images (e.g., style, color scheme).
 - **Gallery**: Create a gallery to showcase the best user-generated images.
 
-## Contributing
 
-We welcome contributions from the community. If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Special thanks to the [Hugging Face](https://huggingface.co/) team for their amazing `diffusers` library.
-- Inspired by the creativity of the open-source community.
